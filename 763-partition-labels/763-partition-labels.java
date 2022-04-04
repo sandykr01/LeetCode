@@ -1,20 +1,19 @@
 class Solution {
     
     public List<Integer> partitionLabels(String s) {
-        HashMap<Character,Integer> map = new HashMap<>();
+        int[] map = new int[26];
         
         for(int i=0;i<s.length();i++){
-            map.put(s.charAt(i),i);
+            map[s.charAt(i)-'a'] = i;
         }
         
-        // System.out.println(map);
         
         ArrayList<Integer> res = new ArrayList<Integer>();
         int pre = -1;
         int curr = 0;
         for(int i=0;i<s.length();i++){
             
-            int reachOfCurr = map.get(s.charAt(i));
+            int reachOfCurr = map[s.charAt(i)-'a'];
             if(reachOfCurr>curr){
                 curr = reachOfCurr;
             }
