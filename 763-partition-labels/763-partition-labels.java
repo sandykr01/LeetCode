@@ -2,9 +2,9 @@ class Solution {
     
     public List<Integer> partitionLabels(String s) {
         HashMap<Character,Integer> map = new HashMap<>();
+        
         for(int i=0;i<s.length();i++){
-            char ch = s.charAt(i);
-            map.put(ch,i);
+            map.put(s.charAt(i),i);
         }
         
         // System.out.println(map);
@@ -15,7 +15,9 @@ class Solution {
         for(int i=0;i<s.length();i++){
             
             int reachOfCurr = map.get(s.charAt(i));
-            curr = Math.max(curr,reachOfCurr);
+            if(reachOfCurr>curr){
+                curr = reachOfCurr;
+            }
                 
             if(curr==i){
                 res.add(curr-pre);
