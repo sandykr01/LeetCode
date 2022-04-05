@@ -18,9 +18,6 @@ class Solution {
     }
     
     public int subarraysWithKDistinct(int[] nums, int k) {
-        int res = getSubArrayWithAtMostK(nums,k);
-        int km1 = getSubArrayWithAtMostK(nums,k-1);
-        
-        return res-km1;
+        return getSubArrayWithAtMostK(nums,k)-getSubArrayWithAtMostK(nums,k-1);
     }
 }
