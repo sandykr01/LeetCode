@@ -10,10 +10,6 @@
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        if(list1==null || list2==null){
-            return list1!=null?list1:list2;
-        }
-        
         ListNode dummy = new ListNode(-101); //dummy node which will keep track of head
         ListNode pre = dummy;
         ListNode curr1 = list1;
