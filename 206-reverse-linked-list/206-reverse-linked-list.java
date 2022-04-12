@@ -9,23 +9,23 @@
  * }
  */
 class Solution {
-    static ListNode nhead = null;
-    public void reverse(ListNode node){
-        if(node.next==null){
-            nhead = node;
-            return;
+    public ListNode reverse(ListNode curr){
+        ListNode pre = null;
+        ListNode nxt = curr.next;
+        while(nxt!=null){
+            curr.next = pre;
+            pre = curr;
+            curr = nxt;
+            nxt = nxt.next;
         }
-        // System.out.println(node.val);
-        reverse(node.next);
-        node.next.next = node;
-        // System.out.println(node.val);
+        curr.next = pre;
+        return curr;
     }
     
     public ListNode reverseList(ListNode head) {
         if(head==null || head.next==null) return head;
-        nhead = null;
-        reverse(head);
-        head.next = null;
+        
+        ListNode nhead = reverse(head);
         return nhead;
     }
 }
