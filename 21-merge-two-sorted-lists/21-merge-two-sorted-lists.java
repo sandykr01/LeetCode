@@ -10,6 +10,10 @@
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        // if(list1==null || list2==null){
+        //     return list1!=null?list1:list2;
+        // }
+        
         ListNode dummy = new ListNode(-101); //dummy node which will keep track of head
         ListNode pre = dummy;
         ListNode curr1 = list1;
@@ -29,9 +33,9 @@ class Solution {
         pre.next = curr2!=null?curr2:curr1;
         
         // This is the proper way to return new head:-
-        // ListNode head = dummy.next;  
-        // dummy.next = null;
+        ListNode head = dummy.next;  
+        dummy.next = null;
         
-        return dummy.next;
+        return head;
     }
 }
