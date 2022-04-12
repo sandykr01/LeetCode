@@ -36,7 +36,6 @@ class Solution {
         // ListNode head = dummy.next;  
         // dummy.next = null;
         
-        // I am doing this to just make it 100% faster
         return dummy.next;
     }
 }
