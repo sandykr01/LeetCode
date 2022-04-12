@@ -33,9 +33,10 @@ class Solution {
         pre.next = curr2!=null?curr2:curr1;
         
         // This is the proper way to return new head:-
-        ListNode head = dummy.next;  
-        dummy.next = null;
+        // ListNode head = dummy.next;  
+        // dummy.next = null;
         
-        return head;
+        // I am doing this to just make it 100% faster
+        return dummy.next;
     }
 }
