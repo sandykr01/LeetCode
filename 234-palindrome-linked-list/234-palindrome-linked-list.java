@@ -23,7 +23,8 @@ class Solution {
         if(fast!=null) slow = slow.next; // In case of odd number of nodes skip the middle one
         
         while(slow!=null){
-            if(st.pop()!=slow.val) return false;
+            int val = st.pop(); 
+            if(val!=slow.val) return false;
             slow = slow.next;
         }
         
