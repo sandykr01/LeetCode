@@ -1,29 +1,19 @@
 class Solution {
     
     public int[] nextGreaterRight(int[] nums){
+        int n = nums.length;
         int[] ans = new int[nums.length];
+        Arrays.fill(ans, -1);
+        
         Stack<Integer> st = new Stack<>();
         st.push(0);
         
-        for(int i=1;i<nums.length;i++){
-            while(st.size()>0 && nums[st.peek()]<nums[i]){
-                ans[st.pop()] = i;
+        for(int i=1;i<n*2;i++){
+            while(st.size()>0 && nums[st.peek()]<nums[i%n]){
+                ans[st.pop()] = i%n;
             }
-            st.push(i);
+            st.push(i%n);
         }
-        
-        
-        
-        while(st.size()>0){
-            for(int i=0;st.size()>0 && i<=st.peek();i++){
-                if(nums[i]>nums[st.peek()]){
-                    ans[st.pop()] = i;
-                    break;
-                }
-                else if(i==st.peek()) ans[st.pop()] = -1;
-            }
-        }
-        
         
         return ans;
     }
