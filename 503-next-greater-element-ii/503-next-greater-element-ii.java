@@ -1,6 +1,5 @@
 class Solution {
-    
-    public int[] nextGreaterRightCircular(int[] nums){
+    public int[] nextGreaterElements(int[] nums) {
         int n = nums.length;
         int[] ans = new int[nums.length];
         Arrays.fill(ans, -1);
@@ -16,13 +15,6 @@ class Solution {
         }
         
         return ans;
-    }
-    
-    
-    public int[] nextGreaterElements(int[] nums) {
-        int[] ngRight = nextGreaterRightCircular(nums);
-        
-        return ngRight;
         
     }
 }
