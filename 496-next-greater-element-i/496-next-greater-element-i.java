@@ -21,21 +21,24 @@ class Solution {
     
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         
-        int[] n1Nge = new int[nums1.length];
+        int[] ans = new int[nums1.length];
         
         int[] n2Nge = nextGreater(nums2);
         
+        HashMap<Integer,Integer> mapOfNum2 = new HashMap<>();
         
-        for(int i=0;i<nums1.length;i++){
-            for(int j=0;j<nums2.length;j++){
-                if(nums1[i]==nums2[j]){
-                    if(n2Nge[j]>0) n1Nge[i] = nums2[n2Nge[j]];
-                    else n1Nge[i] = -1;
-                    break;
-                } 
-            }
+        for(int i=0;i<nums2.length;i++){
+            mapOfNum2.put(nums2[i],i);  // storing value and indices
         }
         
-        return n1Nge;
+        
+        for(int i=0;i<nums1.length;i++){
+            int posInNum2 = mapOfNum2.get(nums1[i]);
+            if(n2Nge[posInNum2]>0) ans[i] = nums2[n2Nge[posInNum2]];
+            else ans[i] = -1;
+
+        }
+        
+        return ans;
     }
 }
