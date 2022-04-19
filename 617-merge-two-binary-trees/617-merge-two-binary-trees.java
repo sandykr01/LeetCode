@@ -16,15 +16,13 @@
 class Solution {
     
     public TreeNode merge(TreeNode root1, TreeNode root2){
-        if(root1==null && root2==null) return null;
-        if(root1==null) return merge(new TreeNode(0),root2);
-        if(root2==null) return merge(root1,new TreeNode(0));
-        
-        TreeNode head = new TreeNode(root1.val+root2.val);
-        head.left = merge(root1.left,root2.left);
-        head.right = merge(root1.right,root2.right);
-        
-        return head;
+        if (root1 == null) return root2;
+        if (root2 == null) return root1;
+
+        TreeNode node = new TreeNode(root1.val + root2.val);
+        node.left = mergeTrees(root1.left, root2.left);
+        node.right = mergeTrees(root1.right, root2.right);
+        return node;
     }
     
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
